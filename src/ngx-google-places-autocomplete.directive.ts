@@ -87,6 +87,14 @@ export class GooglePlaceDirective implements AfterViewInit {
         this.autocomplete.setTypes(this.options.types);
     }
 
+    public set(key: string, value: any): void {
+        this.autocomplete.set(key, value);
+    }
+
+    public setPlace(place: Address): void {
+        this.autocomplete.set('place', place);
+    }
+
     private handleChangeEvent(): void {
         this.ngZone.run(() => {
             this.place = this.autocomplete.getPlace();
